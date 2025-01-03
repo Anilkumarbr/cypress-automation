@@ -6,6 +6,7 @@ describe("Handling Checkbox ",()=>{
         //ksjhhsghsjghsfg
         //hlo the brand
         //kjhksfgf jksfsgjfksagf
+        //jdhhnjdjdh
         cy.get('[type="checkbox"]').uncheck()
 
     })
