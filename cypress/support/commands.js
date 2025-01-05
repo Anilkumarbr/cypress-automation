@@ -35,6 +35,8 @@
 //     LoginPg.submitBtn().click();
 
 //  })
+import 'cypress-downloadfile/lib/downloadFileCommand';
+require('cypress-downloadfile/lib/downloadFileCommand')
 require('@4tw/cypress-drag-drop')
 import contact from "../page/contact"
 //import example from "../fixtures/example.json"
