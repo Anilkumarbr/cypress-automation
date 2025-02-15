@@ -11,13 +11,13 @@ it("File Upload",function(){
         cy.contains('LakshmiResume.docx').should('be.visible')
         cy.contains('Anil_Resume.docx').should('be.visible')
     })
-    it("Download File", function(){
+    it.only("Download File", function(){
         cy.visit('https://commitquality.com/practice-file-download')
         cy.contains('Download File').click()
         cy.wait(4000)
         cy.readFile('cypress\\downloads\\dummy_file.txt').should('exist')
     })
-    it.only("Download File",function(){
+    it("Download File",function(){
 
         let url="https://commitquality.com/practice-file-download";
         const downloadFolder="cypress\downloads";

@@ -1,0 +1,11 @@
+describe("",()=>{
+    it("navigation",()=>{
+        cy.visit('https://practicetestautomation.com/practice-test-login/')
+        cy.get('[id="menu-item-20"]').click()
+        cy.wait(2000)
+        cy.go(-1)
+        cy.go('orward')
+        cy.reload()
+        cy.screenshot('log.pdf')
+    })
+})

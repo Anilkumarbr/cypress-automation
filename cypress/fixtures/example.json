@@ -1,9 +1,23 @@
 {
-  "validDetails": {
+  "validDetails": [
+    {
     "userName": "admin",
     "password": "admin123",
     "body": "Fixtures are a great way to mock data for responses to routes"
   },
+  {
+    "userName": "admin2",
+    "password": "admin1233",
+    "body": "Fixtures are a great way to mock data for responses to routes"
+  },
+  {
+    "userName": "admin3",
+    "password": "admin1234",
+    "body": "Fixtures are a great way to mock data for responses to routes"
+  }
+  
+
+],
   "invalidUserDetails": {
     "userName": "invalidUser",
     "password": "Password123",
