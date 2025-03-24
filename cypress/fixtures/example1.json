@@ -1,9 +1,42 @@
-{
-    "EtryPage": {
-    "name": "akhil",
-    "email": "akhil123@gamil.com",
-    "password": "Akhil123@gmail.com"
-   
-
+[
+  {
+    "username": "user1",
+    "password": "Pass@1234"
+  },
+  {
+    "username": "user2",
+    "password": "Secure#5678"
+  },
+  {
+    "username": "user3",
+    "password": "Alpha$91011"
+  },
+  {
+    "username": "user4",
+    "password": "Beta*1213"
+  },
+  {
+    "username": "user5",
+    "password": "Gamma!1415"
+  },
+  {
+    "username": "user6",
+    "password": "Delta&1617"
+  },
+  {
+    "username": "user7",
+    "password": "Epsilon^1819"
+  },
+  {
+    "username": "user8",
+    "password": "Zeta@2021"
+  },
+  {
+    "username": "user9",
+    "password": "Theta#2223"
+  },
+  {
+    "username": "user10",
+    "password": "Lambda$2425"
   }
-}
+]
