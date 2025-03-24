@@ -257,9 +257,14 @@ it("File download",()=>{
     }))
     //.get('.error-message').should('contains','Please select a file to upload')
 })
-it.only("File download",()=>{
+it.only("Handle child Attribute",()=>{
     cy.visit("https://the-internet.herokuapp.com/windows")
     //.contains('Click Here').invoke('removeAttr','target').click()
     cy.contains('Click Here').click()
 })
 })
+
+
+
+
+
