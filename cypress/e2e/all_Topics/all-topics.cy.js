@@ -13,6 +13,7 @@ cy.contains('Dashboard').should('contain','Dashboard')
 cy.contains('Dashboard').should('have.text','Dashboard')
 cy.contains('Dashboard').should('exist','Dashboard')
 //cy.contains('Dashboard').should('include','Dashboard')
+cy.get("").click()
 
     })
     it("Locators Xpath",()=>{
@@ -59,7 +60,7 @@ cy.visit('https://testautomationpractice.blogspot.com/')
         cy.get('[id="female"]').check()
         cy.get('[id="male"]').uncheck()
     })
-    it("check Box",()=>{
+        it("check Box",()=>{
         cy.visit('https://testautomationpractice.blogspot.com/')
     cy.get('[id="country"]').select('France')
     cy.get('[id="country"]').select('china')
@@ -217,7 +218,8 @@ it("DataDrivenTesting",()=>{
 cy.log(data)
 })
  })
-  it("handle autu suggestion drop down",()=>{
+  it("handle aut0 szsqstion drop down",()=>{
+
      cy.visit("https://www.wikipedia.org/")
     cy.get('[id="searchInput"]').type('anilkuma')
     cy.get('[class="suggestion-title"]').contains('Anil').click()
@@ -247,7 +249,7 @@ it("File download",()=>{
     cy.wait(4000)
     cy.readFile('cypress-automation/cypress/downloads/dummy_file.txt').should('exist')
 })
-it("File download",()=>{
+it("upload the file",()=>{
     cy.visit("https://commitquality.com/practice-file-upload")
    cy.get('[id="file-input"]').attachFile('dummy_file.txt')
     cy.get('[type="submit"]').click({force:true})
@@ -261,6 +263,11 @@ it.only("Handle child Attribute",()=>{
     cy.visit("https://the-internet.herokuapp.com/windows")
     //.contains('Click Here').invoke('removeAttr','target').click()
     cy.contains('Click Here').click()
+
+
+
+
+
 })
 })
 

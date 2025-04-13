@@ -2,6 +2,14 @@ import example from "../../fixtures/example.json"
 describe ("Assignment In MobileApp ",()=>{
     it("Assignment",()=>{
    cy.visit("https://demoblaze.com/index.html")
+
+const apple = "new apple"
+
+if(apple == "new apple"){
+
+    return anil
+}
+
    cy.wait(3000)
    cy.loginPage()
    cy.contains('Thank you for your purchase!').should('exist')

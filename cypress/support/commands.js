@@ -49,6 +49,18 @@ Cypress.Commands.add("contactClick",()=>
     btn.sendMessage().click()
 
 })
+import loginPage from "../page/loginmobile";
+const kilo=new locators();
+Cypress.Commands.add("pob",(userName,passWord)=>{
+    kilo.Pusername.type(userName)
+    kilo.Ppassword().type(passWord)
+    kilo.Psumitbtn().click()
+
+
+})
+
+
+
  import entryPage from "../page/entryPage";
 import example1 from "../fixtures/example1.json"
 let path=new entryPage()
@@ -161,6 +173,7 @@ hrmorange.subBtn().click()
  })
  import example from "../fixtures/example.json"
  import mobile from "../page/mobile";
+import locators from "../e2e/pageObjectModel/loginPage";
 const mobilepage=new mobile();
 Cypress.Commands.add("loginPage",()=>{
 mobilepage.mobileName().click()
