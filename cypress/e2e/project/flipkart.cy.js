@@ -67,6 +67,7 @@ describe('Find exact match for "mobile stand" in Flipkart suggestions', () => {
     });
   });
 });
+//check the data
   
 
 // cy.visit('https://www.flipkart.com');
