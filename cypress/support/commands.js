@@ -58,6 +58,21 @@ Cypress.Commands.add("pob",(userName,passWord)=>{
 
 
 })
+Cypress.Commands.add('selectProduct', (productName) => {
+    cy.get('h4.card-title').each(($el, index, $list) => {
+
+        if ($el.text().includes(productName)) {
+            //cy.wrap($el).click()
+            cy.get("button.btn.btn-info").eq(index).click()
+
+        }
+    })
+})
+Cypress.Commands.add('clicksubmit',(user,pass)=>{
+    cy.get('[name="username"]').type(user)
+    cy.get('[name="password"]').type(pass)
+    cy.get('[type="submit"]').click()
+})
 
 
 

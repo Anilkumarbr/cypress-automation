@@ -1,3 +1,4 @@
+import { before } from "mocha";
 import example1 from "../../fixtures/example1.json"
 import 'cypress-file-upload';
 
@@ -257,9 +258,9 @@ it("upload the file",()=>{
     cy.on('window:alert',((test)=>{
         expect(test).contains('File successfully uploaded')
     }))
-    //.get('.error-message').should('contains','Please select a file to upload')
+    //.get('.error-message').+should('contains','Please select a file to upload')
 })
-it.only("Handle child Attribute",()=>{
+it("Handle child Attribute",()=>{
     cy.visit("https://the-internet.herokuapp.com/windows")
     //.contains('Click Here').invoke('removeAttr','target').click()
     cy.contains('Click Here').click()
@@ -269,9 +270,67 @@ it.only("Handle child Attribute",()=>{
 
 
 })
+it("api testing",()=>{
+    cy.request({
+        method:'GET',
+        url:'https://fakestoreapi.com/products'
+    }).then((response)=>{
+        expect(response.status).to.equal(200)
+        expect(response.body[0].id).to.equal(1)
+    })
 })
 
+before(() => {
+    // Runs ONCE before all tests in this block
+    cy.log('⚙️ Setting up test data');
+    // Could include tasks like creating a test user via API
+  });
+  beforeEach(() => {
+    cy.log("hlo");
+  });
+it("Loginpage",()=>{
 
+   
+    // before(()=>{
+    //   cy.log("anil")
+    // })
+   
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.get('[placeholder="Username"]').type('Admin')
+    cy.get('[placeholder="Password"]').type('admin123')
+    cy.get('[type="submit"]').click()
+    cy.contains('Time').click()
+    cy.get('[class="oxd-icon bi-chevron-down"]').click({ multiple: true } )
+    cy.contains('Employee Timesheets').click()
+    cy.get('[placeholder="Type for hints..."]').type('mandaAJohnAJohn akhil user')
+    cy.wait(9000)
+    cy.get('.oxd-autocomplete-option > span').click()
+    cy.get('[type="submit"]').click()
+    cy.contains('Timesheet for mandaAJohnAJohnAJohn user').should('be.visible')
+    cy.contains("Edit").click()
 
+})
+it.only("bigbasket",()=>{
+    cy.visit("https://www.bigbasket.com/?utm_source=google&utm_medium=cpc&utm_campaign=Brand-PAN-Jan25&gad_source=1&gbraid=0AAAAA91V9orRYCFf0qIzomDApZOLiqL8h&gclid=CjwKCAjwwqfABhBcEiwAZJjC3mbCV2tOIrm2Zdvpa90hANN9BPkcRrZkIX8MHUsVZKz606cdFAqsShoCd_EQAvD_BwE")
+    cy.get('[class="grid xl:grid-flow-col lg:grid-flow-row xl:gap-x-0.7 lg:gap-x-0 text-left leading-none"]').last().click( {force: true})
+    cy.wait(5000)
+    //cy.get('.CategoryTree___StyledLink3-sc-8wbym9-2.kuLxIQ').eq(1).trigger('mouseover',{force:true})
+    // cy.contains("Cleaning & Household").trigger('mouseover')
+    //cy.get('[href="/pc/cleaning-household/sports-fitness/swimming/?nc=nb"]').click()
+    //cy.get('#headlessui-menu-items-\:R1769b6\: > .flex > .bg-darkOnyx-800 > :nth-child(3) > .CategoryTree___StyledLink-sc-8wbym9-0').trigger('mouseover',{force:true})
 
+//cy.contains('Food Court').trigger('mouseover',{force: true});
+//cy.wait(500); // wait for submenu to appear
+// cy.contains('Burgers & Sandwiches').trigger('mouseover',{force: true});
+// cy.wait(500);
+// cy.contains('Sandwiches & Subs').click({force: true});
+cy.contains('Food Court').realHover();
 
+// Wait for the submenu to appear
+cy.contains('Burgers & Sandwiches').should('be.visible').realHover();
+
+// Click the final item
+cy.contains('Sandwiches & Subs').should('be.visible').click();
+
+})
+})
