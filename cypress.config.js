@@ -4,7 +4,8 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
-    supportFile: false,
+    //supportFile: false,
+    supportFile: 'cypress/support/e2e.js',
 
     // "retries":{"runMode":1,"openMode":1},
     

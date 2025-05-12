@@ -21,3 +21,4 @@ import 'cypress-mochawesome-reporter/register';
 // require('./commands')
 require('cypress-xpath')
 import 'cypress-real-events/support';
+require('cypress-xpath');

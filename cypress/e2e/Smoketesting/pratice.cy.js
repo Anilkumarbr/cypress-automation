@@ -1,3 +1,4 @@
+import 'cypress-file-upload';
 describe("all topics",()=>{
 it("checkBox",()=>{
         cy.visit("http://watir.com/examples/forms_with_input_elements.html")
@@ -53,7 +54,7 @@ it("Events",()=>{
     cy.get('#draggable').drag('#droppable',{force:true}
     )
 })
-it.only("iframe",()=>{
+it("iframe",()=>{
     cy.visit('https://jqueryui.com/checkboxradio/')
     cy.get('.demo-frame').then((frame)=>{
      var ani=  frame.contents().find('[for="checkbox-1"]')
@@ -61,5 +62,42 @@ it.only("iframe",()=>{
     })
     cy.get('[href="https://api.jqueryui.com/"]').click()
 })
-it("")
+it("Tables",()=>{
+    cy.visit('https://testautomationpractice.blogspot.com/p/playwrightpractice.html')
+    cy.xpath('//table[@id="taskTable"]/thead/tr/th').should('have.length','5')
+    cy.xpath('//table[@id="taskTable"]/tbody/tr/td').should('have.length','20')
+    cy.xpath('//table[@id="taskTable"]/tbody/tr[4]').within(()=>{
+     cy.get('td').eq(4).then((hlo)=>{
+       const glo= hlo.text();
+       cy.log(glo)
+     })
+     })
+     cy.xpath('//table[@id="taskTable"]/tbody/tr/td').each((rows)=>{
+        cy.wrap(rows).within((cell)=>{
+       cy.log(cell.text())
+})
+     })
+    })
+it("links",()=>{
+    cy.visit("https://www.wikipedia.org/")
+    //cy.get('[id="js-link-box-en"]').click()
+    //cy.contains('Commons').click()
+    cy.get('a').then((links)=>{
+      const link=links.text()
+      cy.log(links)
+      cy.log(link)
+    })
+
+})
+it("Upload File",()=>{
+    cy.visit('https://the-internet.herokuapp.com/upload')
+    cy.get('[id="file-upload"]').attachFile('dummy_file.txt')
+    cy.get('[id="file-submit"]').click()
+    cy.contains('File Uploaded!').should('be.visible')
+})
+it.only("Download",()=>{
+cy.visit('https://commitquality.com/practice-file-download')
+cy.xpath("//button[text()='Download File']").click()
+cy.readFile('C:\Users\anilk\Desktop\dvpProject\cypress-automation\cypress\downloads\dummy_file.txt').should('exist')
+})
 })
